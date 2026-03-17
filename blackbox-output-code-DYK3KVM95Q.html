@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProServicios - Encuentra los mejores profesionales cerca tuyo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-tools"></i>
+                    <span>ProServicios</span>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <input type="text" placeholder="¿Qué servicio necesitas? Ej: plomero, electricista..." class="search-input">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="location-selector">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Buenos Aires</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn-login">Iniciar Sesión</button>
+                    <button class="btn-register">Registrarse</button>
+                    <button class="btn-publish primary">+ Publicar Servicio</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Encuentra Profesionales <br><span class="highlight">Calificados</span> Cerca Tuyo</h1>
+                <p>Plomeros, electricistas, pintores y más. Presupuesto gratis y garantía de satisfacción.</p>
+                <div class="hero-actions">
+                    <button class="btn-primary btn-large">Buscar Profesionales</button>
+                    <button class="btn-secondary btn-large">Ver Categorías</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorías Destacadas -->
+    <section class="categories">
+        <div class="container">
+            <h2>Categorías Populares</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Plomería</h3>
+                    <span>127 Profesionales</span>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Electricidad</h3>
+                    <span>89 Profesionales</span>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-paint-roller"></i>
+                    <h3>Pintura</h3>
+                    <span>156 Profesionales</span>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-key"></i>
+                    <h3>Cerrajería</h3>
+                    <span>45 Profesionales</span>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Gasistas</h3>
+                    <span>67 Profesionales</span>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Jardinería</h3>
+                    <span>92 Profesionales</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Destacados -->
+    <section class="featured-services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Profesionales Destacados</h2>
+                <a href="search.html" class="see-all">Ver todos <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=250&fit=crop" alt="Plomero">
+                        <div class="service-badge">Disponible Ahora</div>
+                    </div>
+                    <div class="service-content">
+                        <div class="service-header">
+                            <h3>Juan Pérez - Plomero Matriculado</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (127)</span>
+                            </div>
+                        </div>
+                        <div class="service-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Palermo, CABA</span>
+                        </div>
+                        <div class="service-price">
+                            <span class="price">desde $8.000</span>
+                            <span class="original-price">$12.000</span>
+                        </div>
+                        <button class="btn-primary full-width">Ver Detalle</button>
+                    </div>
+                </div>
+                <!-- Más cards similares -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1558618047-3c8c76bbb17b?w=400&h=250&fit=crop" alt="Electricista">
+                    </div>
+                    <div class="service-content">
+                        <h3>Carlos López - Electricista</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>4.8 (89)
+                        </div>
+                        <div class="service-location"><i class="fas fa-map-marker-alt"></i> Belgrano</div>
+                        <div class="service-price"><span class="price">desde $10.500</span></div>
+                        <button class="btn-primary full-width">Ver Detalle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Garantía de Satisfacción</h3>
+                    <p>Si no estás conforme, te devolvemos tu dinero.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Profesionales Verificados</h3>
+                    <p>Todos nuestros profesionales están matriculados y verificados.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Atención 24/7</h3>
+                    <p>Soporte las 24 horas para cualquier emergencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-tools"></i>
+                        <span>ProServicios</span>
+                    </div>
+                    <p>La plataforma líder para encontrar profesionales confiables en tu zona.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="#">Plomería</a></li>
+                        <li><a href="#">Electricidad</a></li>
+                        <li><a href="#">Pintura</a></li>
+                        <li><a href="#">Cerrajería</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Cómo funciona</a></li>
+                        <li><a href="#">Términos</a></li>
+                        <li><a href="#">Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
+                    <p><i class="fas fa-envelope"></i> hola@proservicios.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ProServicios. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
