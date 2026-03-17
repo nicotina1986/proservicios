@@ -1,55 +1,407 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF               
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <i class="fas fa-tools"></i>
-                        <span>ProServicios</span>
-                    </div>
-                    <p>Encuentra profesionales confiables en tu zona 24/7</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Categorías</h4>
-                    <a href="#">Plomería</a>
-                    <a href="#">Electricidad</a>
-                    <a href="#">Pintura</a>
-                    <a href="#">Cerrajería</a>
-                </div>
-                <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <p><i class="fas fa-phone"></i> +54 11 1234-5678</p>
-                    <p><i class="fas fa-envelope"></i> hola
-                <div class="social">
-                    <a href="https://wa.me/541165333223" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 ProServicios. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProServicios - Profesionales cerca tuyo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --
-        <body>
-                
-    <!-- WHATSAPP FLOATING -->
-    <a href="https://wa.me/541165333223?text=Hola!%20Necesito%20un%20profesional" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    :root {
+        --orange-primary: #FF6B35;
+        --orange-secondary: #FF8C42;
+        --orange-dark: #E55A2B;
+        --gray-light: #F8F9FA;
+        --gray-medium: #6C757D;
+        --gray-dark: #343A40;
+        --white: #FFFFFF;
+        --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+<!-- WHATSAPP FLOTANTE -->
+<div class="whatsapp-float" onclick="openWhatsApp()">
+    <i class="fab fa-whatsapp"></i>
+    <span>+54 11 6533-3223</span>
+</div>
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        line-height: 1.6;
+        color: var(--gray-dark);
+    }
 
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* HEADER */
+    .header {
+        background: var(--white);
+        box-shadow: var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        gap: 1rem;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--orange-primary);
+    }
+
+    .logo i { font-size: 2.2rem; }
+
+    .search-container {
+        flex: 1;
+        max-width: 500px;
+        position: relative;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 1rem 4rem 1rem 1.5rem;
+        border: 2px solid var(--gray-light);
+        border-radius: 50px;
+        font-size: 1rem;
+        transition: all 0.3s;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--orange-primary);
+        box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+    }
+
+    .search-btn {
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--orange-primary);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: white;
+        cursor: pointer;
+    }
+
+    .header-actions button {
+        padding: 0.7rem 1.5rem;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+        margin-left: 0.5rem;
+    }
+
+    .btn-login {
+        background: transparent;
+        color: var(--gray-medium);
+        border: 2px solid var(--gray-light);
+    }
+
+    .btn-register {
+        background: var(--gray-light);
+        color: var(--gray-dark);
+    }
+
+    .btn-publish {
+        background: var(--orange-primary) !important;
+        color: white !important;
+    }
+
+    .btn-publish:hover {
+        background: var(--orange-dark) !important;
+        transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+        background: linear-gradient(135deg, var(--orange-primary), var(--orange-secondary));
+        color: white;
+        padding: 4rem 0;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+    }
+
+    .btn-large {
+        padding: 1.1rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin: 0 0.5rem;
+    }
+
+    .btn-white {
+        background: white;
+        color: var(--orange-primary);
+    }
+
+    .btn-transparent {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+
+    .btn-large:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    /* CATEGORÍAS */
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: var(--gray-dark);
+    }
+
+    .categories-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .category-card {
+        background: white;
+        padding: 2rem 1rem;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .category-card i {
+        font-size: 3rem;
+        color: var(--orange-primary);
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .category-card h3 {
+        margin-bottom: 0.5rem;
+        color: var(--gray-dark);
+    }
+
+    /* SERVICIOS */
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: 2rem;
+    }
+
+    .service-card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    }
+
+    .service-image {
+        height: 220px;
+        background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+        color: var(--gray-medium);
+    }
+
+    .service-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--orange-primary);
+        color: white;
+        padding: 0.4rem 1rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+
+    .service-content {
+        padding: 1.5rem;
+    }
+
+    .service-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--gray-dark);
+    }
+
+    .rating {
+        color: #FFC107;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+    }
+
+    .location {
+        color: var(--gray-medium);
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+    }
+
+    .price {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: var(--orange-primary);
+        display: block;
+    }
+
+    .btn-full {
+        width: 100%;
+        padding: 1rem;
+        background: var(--orange-primary);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-full:hover {
+        background: var(--orange-dark);
+        transform: translateY(-2px);
+    }
+
+    /* BENEFICIOS */
+    .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        background: var(--gray-light);
+        padding: 4rem 0;
+    }
+
+    .benefit-item {
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .benefit-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--orange-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 1.8rem;
+    }
+
+    /* FOOTER */
+    .footer {
+        background: var(--gray-dark);
+        color: white;
+        padding: 3rem 0 1rem;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer h4 {
+        margin-bottom: 1rem;
+        color: var(--orange-primary);
+    }
+
+    .footer a {
+        color: var(--gray-light);
+        text-decoration: none;
+    }
+
+    .footer a:hover {
+        color: var(--orange-primary);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray-medium);
+        color: var(--gray-light);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .search-container {
+            max-width: 100%;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .services-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .categories-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+</style>
+
+</head>
+<body>
     <!-- HEADER -->
     <header class="header">
         <div class="container">
@@ -58,72 +410,184 @@
                     <i class="fas fa-tools"></i>
                     <span>ProServicios</span>
                 </div>
-                
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="🔍 Plomero, electricista, pintor..." id="searchInput">
-                    <button class="search-btn" onclick="doSearch()">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="¿Plomero? ¿Electricista? ¿Pintor?">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
 
-                <div class="header-actions">
-                    <button class="btn-login" onclick="login()">👤 Ingresar</button>
-                    <button class="btn-register" onclick="register()">Registrarse</button>
-                                   <button class="btn-publish" onclick="publishService()">+ Publicar Servicio</button>
-                </div>
+            <div class="header-actions">
+                <button class="btn-login">Ingresar</button>
+                <button class="btn-register">Registrarse</button>
+                <button class="btn-publish">+ Publicar</button>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- HERO BANNER -->
-    <section class="hero-banner">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Encuentra <span class="orange">Profesionales</span><br>Calificados Cerca Tuyo</h1>
-                <p>Plomeros • Electricistas
-                                    <button class="btn-publish" onclick="publishService()">+ Publicar Servicio</button>
-                       </p>
-                <div class="hero-buttons">
-                    <button class="btn-large btn-primary" onclick="findPro()">
-                        <i class="fas fa-search"></i> Buscar Ahora
-                    </button>
-                    <button class="btn-large btn-secondary" onclick="showCategories()">
-                        Ver Categorías
-                    </button>
-                </div>
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>Encuentra <strong>Profesionales</strong><br>Calificados Cerca Tuyo</h1>
+        <p>Plomeros, electricistas, gasistas, pintores y más. Garantía de satisfacción.</p>
+        <div>
+            <button class="btn-large btn-white">Buscar Ahora</button>
+            <button class="btn-large btn-transparent">Ver Categorías</button>
+        </div>
+    </div>
+</section>
+
+<!-- CATEGORÍAS -->
+<section class="section">
+    <div class="container">
+        <h2>Categorías Más Buscadas</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <i class="fas fa-wrench"></i>
+                <h3>Plomería</h3>
+                <span>156 pros</span>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Electricidad</h3>
+                <span>89 pros</span>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-paint-roller"></i>
+                <h3>Pintura</h3>
+                <span>234 pros</span>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-key"></i>
+                <h3>Cerrajería</h3>
+                <span>67 pros</span>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-fire"></i>
+                <h3>Gasistas</h3>
+                <span>45 pros</span>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-seedling"></i>
+                <h3>Jardinería</h3>
+                <span>112 pros</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- CATEGORÍAS -->
-    <section class="categories-section">
-        <div class="container">
-            <h2>Categorías Populares</h2>
-            <div class="categories-grid">
-                <a href="#servicios?cat=plomeria" class="category-card">
+<!-- SERVICIOS -->
+<section class="section">
+    <div class="container">
+        <h2>Profesionales Destacados</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-image">
                     <i class="fas fa-wrench"></i>
-                    <h3>Plomería</h3>
-                    <span>156 Profesionales</span>
-                </a>
-                <a href="#servicios?
-                                    </a>
-                <a href="#servicios?cat=electricidad" class="category-card">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Electricidad</h3>
-                    <span>89 Profesionales</span>
-                </a>
-                <a href="#servicios?cat=pintura" class="category-card">
-                    <i class="fas
-                                    </div>
-        </div>
-    </section>
-
-    <!-- BENEFICIOS -->
-    <section class="benefits-section">
-        <div class="container">
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-shield-alt"></i>
+                    <div class="service-badge">Online</div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Juan Pérez - Plomero Certificado</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>4.9 (127)</span>
                     </div>
-                    <h3>Garantía
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Palermo, CABA
+                    </div>
+                    <div class="price">desde $8.500</div>
+                    <button class="btn-full">Ver Perfil</button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-bolt"></i>
+                    <div class="service-badge">Online</div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">María Gómez - Electricista</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>4.8 (89)</span>
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Belgrano, CABA
+                    </div>
+                    <div class="price">desde $12.000</div>
+                    <button class="btn-full">Ver Perfil</button>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <i class="fas fa-paint-roller"></i>
+                    <div class="service-badge">Online</div>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">Carlos Ruiz - Pintor Profesional</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>5.0 (156)</span>
+                    </div>
+                    <div class="location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Recoleta, CABA
+                    </div>
+                    <div class="price">desde $15.000</div>
+                    <button class="btn-full">Ver Perfil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="benefits-grid">
+    <div class="container">
+        <div class="benefit-item">
+            <div class="benefit-icon">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Garantía Total</h3>
+            <p>Si no estás satisfecho, te devolvemos el 100% de tu dinero.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon">
+                <i class="fas fa-check-double"></i>
+            </div>
+            <h3>Verificados</h3>
+            <p>Todos nuestros profesionales tienen matrícula y seguro.</p>
+        </div>
+        <div class="benefit-item">
+            <div class="benefit-icon">
+                <i class="fas fa-clock"></i>
+            </div>
+            <h3>24/7 Disponible</h3>
+            <p>Soporte permanente para emergencias y consultas.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="logo" style="color: white; margin-bottom: 1rem;">
+                    <i class="fas fa-tools"></i> ProServicios
+                </div>
+                <p>Encuentra los mejores profesionales de tu zona. Confianza garantizada.</p>
+            </div>
+            /* WHATSAPP FLOTANTE */
+.whatsapp-float {
+    position
+                <h4>Categorías</h4>
+                <p><a href="#">Plomería</a>
