@@ -439,4 +439,157 @@ body {
 /* WhatsApp Flotante */
 .whatsapp-float {
     position: fixed;
-   
+   /* WhatsApp Flotante - COMPLETO */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    right: 20px;
+    bottom: 20px;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 10000;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float span {
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 0;
+    }
+
+    .search-container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .header-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .publish-btn {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+
+    .banner-content p {
+        font-size: 1.1rem;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .hero-banner {
+        padding: 50px 0;
+    }
+
+    .categories, .services-featured, .benefits {
+        padding: 50px 0;
+    }
+
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .whatsapp-float span {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .search-box {
+        height: 45px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+/* Animaciones de entrada */
+.service-card, .category-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.category-card {
+    transition: all 0.4s ease;
+}
+
+/* Utilidades */
+.text-center { text-align: center; }
+.mb-4 { margin-bottom: 2rem; }
+
+/* Hover effects para mobile */
+@media (hover: none) and (pointer: coarse) {
+    .service-card:active,
+    .category-card:active {
+        transform: scale(0.98);
+    }
+}
