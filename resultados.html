@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - ProServicios</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header igual que index.html -->
+    <header class="header">
+        <!-- Copia el header completo de index.html aquí -->
+    </header>
+
+    <div class="container" style="padding: 40px 20px;">
+        <div class="resultados-header">
+            <h1>Resultados de búsqueda</h1>
+            <div class="resultados-count">
+                <span id="count">12 servicios encontrados</span>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="filtros">
+            <div class="filtros-grid">
+                <select class="filtro-select">
+                    <option>Categoría</option>
+                    <option>Cerrajería</option>
+                    <option>Plomería</option>
+                </select>
+                <select class="filtro-select">
+                    <option>Ubicación</option>
+                    <option>CABA</option>
+                    <option>GBA</option>
+                </select>
+                <select class="filtro-select">
+                    <option>Precio</option>
+                    <option>Más económico</option>
+                    <option>Más caro</option>
+                </select>
+                <select class="filtro-select">
+                    <option>Reputación</option>
+                    <option>Mejor calificada</option>
+                </select>
+                <button class="btn-primary">Filtrar</button>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            <!-- Servicios cargados por JS -->
+        </div>
+    </div>
+
+    <!-- Footer y WhatsApp igual que index.html -->
+
+    <script src="js/main.js"></script>
+    <script>
+        // Cargar resultados específicos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simular carga de resultados filtrados
+            const grid = document.querySelector('.services-grid');
+            servicios.forEach(servicio => {
+                grid.innerHTML += crearCardServicio(servicio);
+            });
+        });
+    </script>
+</body>
+</html>
