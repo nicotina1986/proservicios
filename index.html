@@ -2,398 +2,462 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProServicios - Profesionales cerca tuyo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#FF6B35">
+    <title>ProServicios - Profesionales Cerca Tuyo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
     <style>
+        /* RESET MOBILE FIRST */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --orange-primary: #FF6B35;
-            --orange-secondary: #FF8C42;
-            --orange-dark: #E55A2B;
-            --gray-light: #F8F9FA;
-            --gray-medium: #6C757D;
-            --gray-dark: #343A40;
-            --white: #FFFFFF;
-            --shadow: 0 4px 12px rgba(0,0,0,0.1);
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: var(--gray-dark);
+            line-height: 1.5;
+            color: #333;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 100%;
+            padding: 0 15px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        /* HEADER */
+        /* HEADER STICKY MOBILE */
         .header {
-            background: var(--white);
-            box-shadow: var(--shadow);
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            padding: 12px 0;
         }
 
         .header-content {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 1rem 0;
-            gap: 1rem;
+            gap: 12px;
+            flex-wrap: wrap;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--orange-primary);
+            gap: 8px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #FF6B35;
+            white-space: nowrap;
         }
 
-        .logo i { font-size: 2.2rem; }
+        .logo i {
+            font-size: 26px;
+        }
 
+        /* SEARCH MOBILE */
         .search-container {
             flex: 1;
-            max-width: 500px;
+            min-width: 0;
             position: relative;
         }
 
         .search-input {
             width: 100%;
-            padding: 1rem 4rem 1rem 1.5rem;
-            border: 2px solid var(--gray-light);
-            border-radius: 50px;
-            font-size: 1rem;
-            transition: all 0.3s;
+            padding: 14px 50px 14px 16px;
+            border: 2px solid #f1f3f4;
+            border-radius: 25px;
+            font-size: 16px;
+            background: #fafbfc;
+            transition: all 0.2s;
         }
 
         .search-input:focus {
             outline: none;
-            border-color: var(--orange-primary);
+            border-color: #FF6B35;
+            background: white;
             box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
         }
 
         .search-btn {
             position: absolute;
-            right: 0.5rem;
+            right: 4px;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--orange-primary);
+            background: #FF6B35;
             border: none;
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             color: white;
-            cursor: pointer;
+            font-size: 18px;
+        }
+
+        /* BUTTONS MOBILE */
+        .header-actions {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 0;
         }
 
         .header-actions button {
-            padding: 0.7rem 1.5rem;
+            padding: 8px 16px;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-            margin-left: 0.5rem;
+            transition: all 0.2s;
+            white-space: nowrap;
         }
 
         .btn-login {
             background: transparent;
-            color: var(--gray-medium);
-            border: 2px solid var(--gray-light);
+            color: #666;
+            border: 1px solid #eee;
+            display: none;
         }
 
         .btn-register {
-            background: var(--gray-light);
-            color: var(--gray-dark);
+            background: #f8f9fa;
+            color: #333;
+            display: none;
         }
 
         .btn-publish {
-            background: var(--orange-primary) !important;
+            background: #FF6B35 !important;
             color: white !important;
+            padding: 10px 20px !important;
+            font-size: 15px !important;
         }
 
-        .btn-publish:hover {
-            background: var(--orange-dark) !important;
-            transform: translateY(-2px);
-        }
-
-        /* HERO */
+        /* HERO MOBILE */
         .hero {
-            background: linear-gradient(135deg, var(--orange-primary), var(--orange-secondary));
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
             color: white;
-            padding: 4rem 0;
+            padding: 60px 0 40px;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            line-height: 1.3;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 16px;
             opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 300px;
+            margin: 0 auto;
         }
 
         .btn-large {
-            padding: 1.1rem 2.5rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
+            padding: 16px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 25px;
             border: none;
             cursor: pointer;
-            transition: all 0.3s;
-            margin: 0 0.5rem;
+            transition: all 0.2s;
+            width: 100%;
         }
 
-        .btn-white {
+        .btn-primary {
             background: white;
-            color: var(--orange-primary);
+            color: #FF6B35;
         }
 
-        .btn-transparent {
+        .btn-secondary {
             background: transparent;
             color: white;
             border: 2px solid white;
         }
 
-        .btn-large:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        .btn-large:active {
+            transform: scale(0.98);
         }
 
-        /* CATEGORÍAS */
+        /* SECTIONS */
         .section {
-            padding: 4rem 0;
+            padding: 50px 0;
         }
 
-        .section h2 {
+        .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--gray-dark);
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 35px;
+            color: #333;
         }
 
+        /* CATEGORÍAS MOBILE */
         .categories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
         }
 
         .category-card {
             background: white;
-            padding: 2rem 1rem;
-            border-radius: 20px;
+            padding: 25px 15px;
+            border-radius: 16px;
             text-align: center;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.2s;
             cursor: pointer;
-            transition: all 0.3s;
         }
 
-        .category-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        .category-card:active {
+            transform: scale(0.98);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
         .category-card i {
-            font-size: 3rem;
-            color: var(--orange-primary);
+            font-size: 36px;
+            color: #FF6B35;
             display: block;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
         }
 
         .category-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--gray-dark);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
         }
 
-        /* SERVICIOS */
+        .category-count {
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* SERVICIOS MOBILE */
         .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .service-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            transition: all 0.2s;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        .service-card:active {
+            transform: scale(0.99);
         }
 
         .service-image {
-            height: 220px;
-            background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+            height: 160px;
+            background: linear-gradient(135deg, #f8f9fa, #f1f3f4);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: var(--gray-medium);
+        }
+
+        .service-image i {
+            font-size: 48px;
+            color: #ccc;
         }
 
         .service-badge {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--orange-primary);
+            top: 12px;
+            right: 12px;
+            background: #FF6B35;
             color: white;
-            padding: 0.4rem 1rem;
+            padding: 6px 12px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 12px;
+            font-weight: 700;
         }
 
         .service-content {
-            padding: 1.5rem;
+            padding: 20px;
         }
 
         .service-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--gray-dark);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
         }
 
         .rating {
-            color: #FFC107;
-            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #FFA726;
             font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 14px;
         }
 
         .location {
-            color: var(--gray-medium);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 16px;
         }
 
-        .price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--orange-primary);
-            display: block;
+        .service-price {
+            font-size: 22px;
+            font-weight: 800;
+            color: #FF6B35;
+            margin-bottom: 20px;
         }
 
-        .btn-full {
+        .btn-primary {
             width: 100%;
-            padding: 1rem;
-            background: var(--orange-primary);
+            padding: 16px;
+            background: linear-gradient(135deg, #FF6B35, #FF8C42);
             color: white;
             border: none;
             border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            font-size: 16px;
+            font-weight: 700;
         }
 
-        .btn-full:hover {
-            background: var(--orange-dark);
-            transform: translateY(-2px);
+        /* BENEFICIOS MOBILE */
+        .benefits {
+            background: #f8f9fa;
+            padding: 50px 0;
         }
 
-        /* BENEFICIOS */
         .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            background: var(--gray-light);
-            padding: 4rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
 
         .benefit-item {
             text-align: center;
-            padding: 2rem;
+            padding: 0 10px;
         }
 
         .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--orange-primary);
+            width: 70px;
+            height: 70px;
+            background: #FF6B35;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
+            margin: 0 auto 16px;
             color: white;
-            font-size: 1.8rem;
+            font-size: 24px;
         }
 
-        /* FOOTER */
+        .benefit-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .benefit-item p {
+            color: #666;
+            font-size: 15px;
+        }
+
+        /* FOOTER MOBILE */
         .footer {
-            background: var(--gray-dark);
+            background: #222;
             color: white;
-            padding: 3rem 0 1rem;
+            padding: 40px 0 20px;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 25px;
         }
 
-        .footer h4 {
-            margin-bottom: 1rem;
-            color: var(--orange-primary);
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #FF6B35;
+            margin-bottom: 10px;
         }
 
-        .footer a {
-            color: var(--gray-light);
+        .footer-section h4 {
+            color: #FF6B35;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .footer-link {
+            color: #ccc;
             text-decoration: none;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
         }
 
-        .footer a:hover {
-            color: var(--orange-primary);
+        .footer-link:hover {
+            color: #FF6B35;
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid var(--gray-medium);
-            color: var(--gray-light);
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #999;
+            font-size: 13px;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+        /* TABLET */
+        @media (min-width: 768px) {
+            .container { padding: 0 25px; }
+            .categories-grid { grid-template-columns: repeat(3, 1fr); }
+            .services-grid { 
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 25px;
             }
+            .header-actions button { display: block; }
+            .hero-buttons { flex-direction: row; }
+            .btn-large { width: auto; }
+            .benefits-grid { 
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
 
-            .search-container {
-                max-width: 100%;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .categories-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        /* DESKTOP */
+        @media (min-width: 1024px) {
+            .container { max-width: 1200px; }
+            .hero h1 { font-size: 42px; }
+            .section-title { font-size: 32px; }
         }
     </style>
 </head>
@@ -408,14 +472,14 @@
                 </div>
                 
                 <div class="search-container">
-                    <input type="text" class="search-input" placeholder="¿Plomero? ¿Electricista? ¿Pintor?">
-                    <button class="search-btn">
+                    <input type="text" class="search-input" placeholder="🔍 Plomero, electricista, pintor...">
+                    <button class="search-btn" onclick="searchService()">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
 
                 <div class="header-actions">
-                    <button class="btn-login">Ingresar</button>
+                    <button class="btn-login">👤</button>
                     <button class="btn-register">Registrarse</button>
                     <button class="btn-publish">+ Publicar</button>
                 </div>
@@ -426,11 +490,15 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1>Encuentra <strong>Profesionales</strong><br>Calificados Cerca Tuyo</h1>
-            <p>Plomeros, electricistas, gasistas, pintores y más. Garantía de satisfacción.</p>
-            <div>
-                <button class="btn-large btn-white">Buscar Ahora</button>
-                <button class="btn-large btn-transparent">Ver Categorías</button>
+            <h1>🔧 Profesionales<br><strong>Calificados</strong> Ya</h1>
+            <p>Plomeros, electricistas, gasistas y más. Presupuesto gratis en minutos.</p>
+            <div class="hero-buttons">
+                <button class="btn-large btn-primary" onclick="findPro()">
+                    Buscar Ahora
+                </button>
+                <button class="btn-large btn-secondary">
+                    Ver Categorías
+                </button>
             </div>
         </div>
     </section>
@@ -438,37 +506,37 @@
     <!-- CATEGORÍAS -->
     <section class="section">
         <div class="container">
-            <h2>Categorías Más Buscadas</h2>
+            <h2 class="section-title">Categorías Populares</h2>
             <div class="categories-grid">
-                <div class="category-card">
+                <div class="category-card" onclick="goToCategory('plomeria')">
                     <i class="fas fa-wrench"></i>
                     <h3>Plomería</h3>
-                    <span>156 pros</span>
+                    <span class="category-count">156 pros</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="goToCategory('electricidad')">
                     <i class="fas fa-bolt"></i>
                     <h3>Electricidad</h3>
-                    <span>89 pros</span>
+                    <span class="category-count">89 pros</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="goToCategory('pintura')">
                     <i class="fas fa-paint-roller"></i>
                     <h3>Pintura</h3>
-                    <span>234 pros</span>
+                    <span class="category-count">234 pros</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="goToCategory('cerrajeria')">
                     <i class="fas fa-key"></i>
                     <h3>Cerrajería</h3>
-                    <span>67 pros</span>
+                    <span class="category-count">67 pros</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="goToCategory('gasistas')">
                     <i class="fas fa-fire"></i>
                     <h3>Gasistas</h3>
-                    <span>45 pros</span>
+                    <span class="category-count">45 pros</span>
                 </div>
-                <div class="category-card">
+                <div class="category-card" onclick="goToCategory('jardineria')">
                     <i class="fas fa-seedling"></i>
                     <h3>Jardinería</h3>
-                    <span>112 pros</span>
+                    <span class="category-count">112 pros</span>
                 </div>
             </div>
         </div>
@@ -477,112 +545,47 @@
     <!-- SERVICIOS -->
     <section class="section">
         <div class="container">
-            <h2>Profesionales Destacados</h2>
+            <h2 class="section-title">⭐ Top Profesionales</h2>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-image">
                         <i class="fas fa-wrench"></i>
-                        <div class="service-badge">Online</div>
+                        <div class="service-badge">🟢 Online</div>
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">Juan Pérez - Plomero Certificado</h3>
+                        <h3 class="service-title">Juan Pérez<br><small>Plomero Matriculado</small></h3>
                         <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>4.9 (127)</span>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            4.9 (127)
                         </div>
                         <div class="location">
                             <i class="fas fa-map-marker-alt"></i>
                             Palermo, CABA
                         </div>
-                        <div class="price">desde $8.500</div>
-                        <button class="btn-full">Ver Perfil</button>
+                        <div class="service-price">$8.500<span style="font-size:14px;color:#666;"> desde</span></div>
+                        <button class="btn-primary" onclick="contactPro('Juan Pérez')">Contactar</button>
                     </div>
                 </div>
 
                 <div class="service-card">
                     <div class="service-image">
                         <i class="fas fa-bolt"></i>
-                        <div class="service-badge">Online</div>
+                        <div class="service-badge">🟢 Online</div>
                     </div>
                     <div class="service-content">
-                        <h3 class="service-title">María Gómez - Electricista</h3>
+                        <h3 class="service-title">María Gómez<br><small>Electricista Certificada</small></h3>
                         <div class="rating">
                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                            <span>4.8 (89)</span>
+                            4.8 (89)
                         </div>
                         <div class="location">
                             <i class="fas fa-map-marker-alt"></i>
                             Belgrano, CABA
                         </div>
-                        <div class="price">desde $12.000</div>
-                        <button class="btn-full">Ver Perfil</button>
+                        <div class="service-price">$12.000<span style="font-size:14px;color:#666;"> desde</span></div>
+                        <button class="btn-primary" onclick="contactPro('María Gómez')">Contactar</button>
                     </div>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-image">
-                        <i class="fas fa-paint-roller"></i>
-                        <div class="service-badge">Online</div>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Carlos Ruiz - Pintor Profesional</h3>
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            <span>5.0 (156)</span>
-                        </div>
-                        <div class="location">
-                            <i class="fas fa-map-marker-alt"></i>
-                            Recoleta, CABA
-                        </div>
-                        <div class="price">desde $15.000</div>
-                        <button class="btn-full">Ver Perfil</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BENEFICIOS -->
-    <section class="benefits-grid">
-        <div class="container">
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Garantía Total</h3>
-                <p>Si no estás satisfecho, te devolvemos el 100% de tu dinero.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-check-double"></i>
-                </div>
-                <h3>Verificados</h3>
-                <p>Todos nuestros profesionales tienen matrícula y seguro.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">
-                    <i class="fas fa-clock"></i>
-                </div>
-                <h3>24/7 Disponible</h3>
-                <p>Soporte permanente para emergencias y consultas.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div class="logo" style="color: white; margin-bottom: 1rem;">
-                        <i class="fas fa-tools"></i> ProServicios
-                    </div>
-                    <p>Encuentra los mejores profesionales de tu zona. Confianza garantizada.</p>
-                </div>
-                <div>
-                    <h4>Categorías</h4>
-                    <p><a href="#">Plomería</a>
+                    <div class="service
